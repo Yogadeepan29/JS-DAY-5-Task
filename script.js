@@ -58,17 +58,19 @@ console.log(`                               ${"<--Using for Loop-->"}`);
 console.log("");
 console.log("     Tech-Savvy Graduate with Strong Planning Skills and a Hunger for Knowledge",);
 console.log("");
-for (const key in resume) {
-if (Array.isArray(resume[key])) {
-  console.log(`                                    ${key}`);
-  console.log("");
-  for (const item of resume[key]) {
-    console.log("   " + item);
+const keys = Object.keys(resume);
+for (let i = 0; i < keys.length; i++) {
+  const key = keys[i];
+  if (Array.isArray(resume[key])) {
+    console.log(`                                    ${key}`);
+    console.log("");
+    for (let j = 0; j < resume[key].length; j++) {
+      console.log("   " + resume[key][j]);
+    }
+  } else {
+    console.log(key + ": " + resume[key]);
   }
-} else {
-  console.log(key + ": " + resume[key]);
-}
-console.log("");
+  console.log("");
 }
 
 //------------------------------------------------------------------------------------------------------
